@@ -26,7 +26,7 @@ A Vanilla-JS ES6 event emitter that triggers standard events, but also unique ev
 
 ## Standard event
 Will be launched each time it is emitted
-```java-script
+```js
 	// register the on_event
 	b.on('on_event', this, () => {
 		console.log('emitting on_event');
@@ -43,7 +43,7 @@ Will be launched each time it is emitted
 
 ## Unique event
 Will be launched just the first time it is emitted, not after 
-```java-script
+```js
 	// register the once_event
 	b.once('once_event', this, () => {
 		console.log('emitting once_event');
@@ -73,7 +73,7 @@ Will be launched just the first time it is emitted, not after
 
 ## event loop
 Will be launched the number of time it is asked, whatever the number of emits
-```java-script
+```js
 	// register the to_event
 	b.to('to_event', this, () => {
 		console.log('emitting to_event');
@@ -107,7 +107,7 @@ Will be launched the number of time it is asked, whatever the number of emits
 
 ## localized event
 Will be launched after n emits, n being the given number
-```java-script
+```js
 	// register the at_event
 	b.at('at_event', this, () => {
 		console.log('emitting at_event');
@@ -142,7 +142,7 @@ Will be launched after n emits, n being the given number
 
 ## unique localized event
 Will be launched only once after n emits, n being the given number
-```java-script
+```js
 	// register the there_event
 	b.there('there_event', this, () => {
 		console.log('emitting there_event');
@@ -171,7 +171,7 @@ Will be launched only once after n emits, n being the given number
 ```
 
 ## Unregister an event
-```java-script
+```js
 	// register the on_event
 	b.on('on_event', this, () => {
 		console.log('emitting on_event');

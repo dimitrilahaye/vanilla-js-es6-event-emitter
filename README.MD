@@ -16,11 +16,11 @@ A Vanilla-JS ES6 event emitter that triggers standard events, but also unique ev
 <script type="text/javascript" src="../lib/EventEmitter_singleton.js"></script>
 
 <script type="text/javascript">
-	// get the EventEmitter single instance
-	const b = Bus.getInstance();
-
-	// work with your event emitter
-	// ...
+	// You can access to the unique instance of the EventEmitter with const {Bus}
+	Bus.on('on_event', this, () => {
+		console.log('emitting on_event');
+	});
+	Bus.emit(['on_event']);
 </script>
 ```
 
@@ -28,12 +28,12 @@ A Vanilla-JS ES6 event emitter that triggers standard events, but also unique ev
 Will be launched each time it is emitted
 ```js
 	// register the on_event
-	b.on('on_event', this, () => {
+	Bus.on('on_event', this, () => {
 		console.log('emitting on_event');
 	});
 
 	// call the on_event many times
-	b.emit(['on_event']);
+	Bus.emit(['on_event']);
 
 	/*
 		>> will log:
@@ -45,14 +45,14 @@ Will be launched each time it is emitted
 Will be launched just the first time it is emitted, not after 
 ```js
 	// register the once_event
-	b.once('once_event', this, () => {
+	Bus.once('once_event', this, () => {
 		console.log('emitting once_event');
 	});
 
 	// call the once_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		b.emit(['once_event']);	
+		Bus.emit(['once_event']);	
 	}
 
 	/*
@@ -75,14 +75,14 @@ Will be launched just the first time it is emitted, not after
 Will be launched the number of time it is asked, whatever the number of emits
 ```js
 	// register the to_event
-	b.to('to_event', this, () => {
+	Bus.to('to_event', this, () => {
 		console.log('emitting to_event');
 	}, 5);
 
 	// call the to_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		b.emit(['to_event']);	
+		Bus.emit(['to_event']);	
 	}
 
 	/*
@@ -109,14 +109,14 @@ Will be launched the number of time it is asked, whatever the number of emits
 Will be launched after n emits, n being the given number
 ```js
 	// register the at_event
-	b.at('at_event', this, () => {
+	Bus.at('at_event', this, () => {
 		console.log('emitting at_event');
 	}, 5);
 
 	// call the at_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		b.emit(['at_event']);	
+		Bus.emit(['at_event']);	
 	}
 
 	/*
@@ -144,14 +144,14 @@ Will be launched after n emits, n being the given number
 Will be launched only once after n emits, n being the given number
 ```js
 	// register the there_event
-	b.there('there_event', this, () => {
+	Bus.there('there_event', this, () => {
 		console.log('emitting there_event');
 	}, 5);
 
 	// call the there_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		b.emit(['there_event']);	
+		Bus.emit(['there_event']);	
 	}
 
 	/*
@@ -173,16 +173,16 @@ Will be launched only once after n emits, n being the given number
 ## Unregister an event
 ```js
 	// register the on_event
-	b.on('on_event', this, () => {
+	Bus.on('on_event', this, () => {
 		console.log('emitting on_event');
 	});
 
 	// call the on_event many times
-	b.emit(['on_event']);
+	Bus.emit(['on_event']);
 	console.log('............');
-	b.emit(['on_event']);
-	b.off(['on_event'], this);
-	b.emit(['on_event']);
+	Bus.emit(['on_event']);
+	Bus.off(['on_event'], this);
+	Bus.emit(['on_event']);
 
 	/*
 		>> will log:

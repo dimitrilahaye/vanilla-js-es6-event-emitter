@@ -17,11 +17,11 @@
 	});
 
 	// call the on_event many times
-	Bus.emit(['on_event']);
+	Bus.emit('on_event');
 	console.log('............');
-	Bus.emit(['on_event']);
-	Bus.off(['on_event'], this);
-	Bus.emit(['on_event']);
+	Bus.emit('on_event');
+	Bus.off('on_event', this);
+	Bus.emit('on_event');
 
 	/*
 		>> will log:
@@ -39,7 +39,7 @@
 	// call the once_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		Bus.emit(['once_event']);	
+		Bus.emit('once_event');	
 	}
 
 	/*
@@ -66,7 +66,7 @@
 	// call the to_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		Bus.emit(['to_event']);	
+		Bus.emit('to_event');	
 	}
 
 	/*
@@ -96,7 +96,7 @@
 	// call the at_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		Bus.emit(['at_event']);	
+		Bus.emit('at_event');	
 	}
 
 	/*
@@ -127,7 +127,7 @@
 	// call the there_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		Bus.emit(['there_event']);	
+		Bus.emit('there_event');	
 	}
 
 	/*

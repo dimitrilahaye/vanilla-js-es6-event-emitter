@@ -20,7 +20,7 @@ A Vanilla-JS ES6 event emitter that triggers standard events, but also unique ev
 	Bus.on('on_event', this, () => {
 		console.log('emitting on_event');
 	});
-	Bus.emit(['on_event']);
+	Bus.emit('on_event');
 </script>
 ```
 
@@ -33,7 +33,7 @@ Will be launched each time it is emitted
 	});
 
 	// call the on_event many times
-	Bus.emit(['on_event']);
+	Bus.emit('on_event');
 
 	/*
 		>> will log:
@@ -52,7 +52,7 @@ Will be launched just the first time it is emitted, not after
 	// call the once_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		Bus.emit(['once_event']);	
+		Bus.emit('once_event');	
 	}
 
 	/*
@@ -82,7 +82,7 @@ Will be launched the number of time it is asked, whatever the number of emits
 	// call the to_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		Bus.emit(['to_event']);	
+		Bus.emit('to_event');	
 	}
 
 	/*
@@ -116,7 +116,7 @@ Will be launched after n emits, n being the given number
 	// call the at_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		Bus.emit(['at_event']);	
+		Bus.emit('at_event');	
 	}
 
 	/*
@@ -151,7 +151,7 @@ Will be launched only once after n emits, n being the given number
 	// call the there_event
 	for(var i = 0; i < 10; i++){
 		console.log(i);
-		Bus.emit(['there_event']);	
+		Bus.emit('there_event');	
 	}
 
 	/*
@@ -178,11 +178,11 @@ Will be launched only once after n emits, n being the given number
 	});
 
 	// call the on_event many times
-	Bus.emit(['on_event']);
+	Bus.emit('on_event');
 	console.log('............');
-	Bus.emit(['on_event']);
-	Bus.off(['on_event'], this);
-	Bus.emit(['on_event']);
+	Bus.emit('on_event');
+	Bus.off('on_event', this);
+	Bus.emit('on_event');
 
 	/*
 		>> will log:

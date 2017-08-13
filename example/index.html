@@ -10,6 +10,14 @@
 <script type="text/javascript" src="../lib/EventEmitter_singleton.js"></script>
 
 <script type="text/javascript">
+	Bus.on('event', this, (a, b) => {
+		console.log(a, b);
+	});
+	Bus.emit('event', 1, 2);
+</script>
+
+<!--
+<script type="text/javascript">
 
 	// TODO : arguments into object args { id: 123, name: 'toto' }
 	// eg => Bus.emit('myEvent', { id: 123, name: 'toto' });
@@ -150,5 +158,6 @@
 	*/
 
 </script>
+-->
 </body>
 </html>

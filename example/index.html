@@ -11,6 +11,10 @@
 
 <script type="text/javascript">
 
+	// TODO : arguments into object args { id: 123, name: 'toto' }
+	// eg => Bus.emit('myEvent', { id: 123, name: 'toto' });
+	// eg => Bus.on('myEvent', this, (args) => { console.log(args.id); });
+
 	// register the on_event
 	Bus.on('on_event', this, () => {
 		console.log('emitting on_event');
